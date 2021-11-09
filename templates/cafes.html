@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+	  <table class="table">
+          <tr>
+              {% for item in cafes[0]: %}
+                <th>{{ item }}</th>
+              {% endfor %}
+          </tr>
+          {% for cafe in cafes[1:]: %}
+          <tr>
+              {% for item in cafe %}
+                <td>{{ item }}</td>
+              {% endfor %}
+          </tr>
+          {% endfor %}
+  	  </table>
+
+      <p><a href="/">Return to index page</a></p>
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+
