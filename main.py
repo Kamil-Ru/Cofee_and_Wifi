@@ -3,7 +3,7 @@ from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, SubmitField, DateTimeField, SelectField
 from wtforms.fields.html5 import URLField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, URL
 import csv
 
 app = Flask(__name__)
@@ -13,10 +13,10 @@ Bootstrap(app)
 
 class CafeForm(FlaskForm):
     cafe = StringField(label='Cafe name', validators=[DataRequired()])
-    location = URLField(label='Location URL', validators=[DataRequired()])
+    location = URLField(label='Location URL', validators=[URL()])
 
-    open_time = DateTimeField(label="Open time: ", format="%H:%M", validators=[DataRequired()])
- #   closing_time =
+    open_time = StringField(label="Open time: ", validators=[DataRequired()])
+    closing_time = StringField(label="Open time: ", validators=[DataRequired()])
 
     coffee = SelectField(label="Coffee rating: ", choices=["☕", "☕☕", "☕☕☕", "☕☕☕☕", "☕☕☕☕☕"])
     wifi = SelectField(label="Wifi rating: ", choices=["💪", "💪💪", "💪💪💪", "💪💪💪💪", "💪💪💪💪💪"])
