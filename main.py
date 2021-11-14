@@ -44,9 +44,7 @@ def add_cafe():
             csv_data.writerow(new_entry)
 
         return redirect("/cafes")
-
-    else:
-        return render_template('add.html', form=form)
+    return render_template('add.html', form=form)
 
 
 @app.route('/cafes')
